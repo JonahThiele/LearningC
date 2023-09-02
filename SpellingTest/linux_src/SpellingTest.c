@@ -88,11 +88,11 @@ int main(int argc, char**argv){
         totalFLines++; 
     }
 
-    char option[10];
+    char option;
 
     srand(time(NULL));
 
-    while(strcmp(option, "q") != 0){
+    while(option !=  'q'){
     //randomize the list using the fisher-yates shuffle algorithm
     //before serving to the user
     for(int a = totalFLines  -1; a >= 0; a--){
@@ -116,13 +116,13 @@ int main(int argc, char**argv){
 
         if(strcmp(guess,words[i]) == 0){
             //set up ascii escape codes to color the output
-            printf("\n \x1b[32mCorrect!\x1b[0m");
+            printf("\n\x1b[32mCorrect!\x1b[0m");
         }else {
             printf("\n\x1b[31mIncorrect!\x1b[0m your answer was \x1b[31m%s\x1b[0m instead of \x1b[32m%s\x1b[0m", guess, words[i]);
     } 
     }
-       printf("\ntype q quit otherwise play another round: ");
-       scanf("%ms", &option); 
+       printf("\ntype q quit otherwise type any character to play another round: ");
+       scanf(" %c", &option); 
 
     }
 
